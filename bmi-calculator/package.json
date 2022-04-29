@@ -2,7 +2,7 @@
   "name": "bmi-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Kamalraj5544",
+  "homepage": "https://Kamalraj5544.github.io/BMI-calculator",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -13,12 +13,12 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "node --version",
     "start": "react-scripts start",
+    "predeloy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
