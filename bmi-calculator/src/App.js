@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [result, setResult] = useState(0);
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [result, setResult] = useState("");
 
-  const DisplayResults = () => {
-    if ((weight > 500 && height > 200) || weight === 0 || height === 0) {
+  const calculateBMI = () => {
+    if ((weight > 500 && height > 200) || weight === "" || height === "") {
       alert("Sorry it can be calculated");
     } else {
       let r = height ** 2;
@@ -15,9 +15,9 @@ function App() {
     }
   };
   const Reset = () => {
-    setWeight(0);
-    setHeight(0);
-    setResult(0);
+    setWeight("");
+    setHeight("");
+    setResult("");
   };
 
   return (
@@ -29,6 +29,7 @@ function App() {
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
           className="input-area"
+          placeholder="eg.62"
         />
       </label>
       <label className="label">
@@ -37,15 +38,18 @@ function App() {
           value={height}
           onChange={(e) => setHeight(e.target.value)}
           className="input-area"
+          placeholder="eg.165"
         />
       </label>
-      <button onClick={DisplayResults} className="btn-element">
+      <button onClick={calculateBMI} className="btn-element">
         Calculate
       </button>
       <button onClick={Reset} className="btn-element">
         Reset
       </button>
-      <div className="bmi-value">Your BMI : {result}</div>
+
+      <div className="value">Your BMI : {result}</div>
+
       <div className="ranges">
         <li>{`Under-weight (< 18.5)`} </li>
         <li>{`Normal (18.5 - 25)`}</li>
